@@ -1,1 +1,83 @@
+import { z } from "zod";
+
 export const isOdd = (n: number): boolean => !!(n & 1);
+
+const invoiceAISchema = z.object({
+  customerName: z.string().nullable(),
+  currency: z.enum(["ALL", "EUR", "USD", "CAD"]).nullable(),
+  paymentMethod: z.enum(["CASH", "CARD", "BANK", "OTHER"]).nullable(),
+  notes: z.string().nullable(),
+  vehiclePlates: z.string().nullable(),
+  exchangeRate: z.number().nullable(),
+  items: z
+    .array(
+      z.object({
+        name: z.string().nullable(),
+        quantity: z.number().nullable(),
+        unit: z
+          .enum([
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "XPP",
+            "MTQ",
+            "MTQ",
+            "MLT",
+            "MLT",
+            "MLT",
+            "MLT",
+            "MLT",
+            "XPP",
+            "KGM",
+            "KGM",
+            "MTK",
+            "MTK",
+            "M4",
+            "M4",
+            "M4",
+            "M4",
+            "M4",
+            "GRM",
+            "GRM",
+            "GRM",
+            "GRM",
+            "HUR",
+            "HUR",
+            "HUR",
+            "HUR",
+            "M36",
+            "M36",
+            "M36",
+            "MTR",
+            "MTR",
+            "MTR",
+            "XBE",
+            "XBE",
+            "PR",
+            "PR",
+            "PR",
+            "XVI",
+            "XVI",
+            "XBJ",
+            "XBJ",
+          ])
+          .nullable(),
+        priceWT: z.number().nullable(),
+        discountPercentage: z.number().nullable(),
+        images: z.array(z.string()).nullable(),
+        code: z.string().nullable(),
+      }),
+    )
+    .nullable(),
+  discount: z.number().nullable(),
+  discountType: z.enum(["PERCENTAGE", "VALUE"]).nullable(),
+});
+
+export { invoiceAISchema };
