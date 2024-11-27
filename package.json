@@ -1,0 +1,34 @@
+{
+  "name": "pos-schemas",
+  "version": "0.2.6",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/pos-schemas.umd.js",
+  "module": "./dist/pos-schemas.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pos-schemas.es.js",
+      "require": "./dist/pos-schemas.umd.js"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "publish": "npm run build && npm publish",
+    "latest": "npm install pos-schemas@latest"
+  },
+  "devDependencies": {
+    "ajv": "^8.11.0",
+    "ajv-errors": "^3.0.0",
+    "pos-schemas": "^0.0.6",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.8.1"
+  },
+  "peerDependencies": {
+    "ajv": "^8.11.0",
+    "ajv-errors": "^3.0.0"
+  }
+}
