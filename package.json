@@ -1,5 +1,5 @@
 {
-  "name": "@pos/schema",
+  "name": "pos-schema",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
